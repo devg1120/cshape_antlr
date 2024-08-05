@@ -1,12 +1,23 @@
 import sys
 from antlr4 import *
-#from ExprParser import ExprParser
-#from ExprListener import ExprListener
 from grammar.CSharpParserListener import CSharpParserListener
+from grammar.CSharpParser import CSharpParser
 
 class ListenerInterp(CSharpParserListener):
     def __init__(self):
         self.result = {}
+    def enterNamespace_or_type_name(self, ctx:CSharpParser.Namespace_or_type_nameContext):
+        pass
+        #print("enterNamespace_or_type_name", ctx.getText())
+
+    def exitNamespace_or_type_name(self, ctx:CSharpParser.Namespace_or_type_nameContext):
+        pass
+        #print("exitNamespace_or_type_name", ctx.getText())
+
+    def exitClass_type(self, ctx:CSharpParser.Class_typeContext):
+        print("exitClass_type", ctx.getText())
+
+
 """
     def __init__(self):
         self.result = {}

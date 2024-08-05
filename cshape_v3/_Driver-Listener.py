@@ -1,10 +1,7 @@
 import sys
 from antlr4 import *
-#from ExprLexer import ExprLexer
-#from ExprParser import ExprParser
 from grammar.CSharpLexer import CSharpLexer
 from grammar.CSharpParser import CSharpParser
-
 from _ListenerInterp import ListenerInterp
 
 def main(argv):
@@ -12,9 +9,7 @@ def main(argv):
     lexer = CSharpLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = CSharpParser(stream)
-    #tree = parser.start_()
     tree = parser.compilation_unit()
-
     if parser.getNumberOfSyntaxErrors() > 0:
         print("syntax errors")
     else:
@@ -23,5 +18,6 @@ def main(argv):
         walker.walk(linterp, tree)
 
 if __name__ == '__main__':
+    print("py exec:",__file__)
     main(sys.argv)
 
