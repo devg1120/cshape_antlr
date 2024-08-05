@@ -1,0 +1,15 @@
+
+https://github.com/antlr/antlr4/blob/master/doc/python-target.md
+
+
+pip install antlr4-tools
+
+antlr4 -visitor -listener -Dlanguage=Python3 Expr.g4
+
+pip install antlr4-python3-runtime
+
+
+
+python _Driver-Visitor.py  input.txt
+
+python _Driver-Listener.py input.txt
